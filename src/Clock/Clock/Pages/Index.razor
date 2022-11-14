@@ -1,13 +1,30 @@
-﻿@using System;
+﻿@using System.Timers;
 @page "/"
 
 <PageTitle>Clock</PageTitle>
 
 <h1>Clock</h1>
-
-<h1>@ClockTime</h1>
+<font size="7">@clock_time</font>
 
 @code {
-    private string ClockTime = DateTime.Now.ToString();
+    DateTime clock_time;
+    private Timer timer;
+
+    protected override void OnInitialized()
+    {
+        timer = new Timer(0.1);
+        timer.Elapsed += (sender, e) =>
+        {
+            clock_time = DateTime.Now;
+            StateHasChanged();
+        };
+        timer.Start();
+    }
+
+    public void Dispose()
+    {
+        timer.Stop();
+        timer.Dispose();
+    }
 
 }
