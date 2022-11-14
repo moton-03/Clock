@@ -1,0 +1,13 @@
+﻿@using System;
+@page "/"
+
+<PageTitle>Clock</PageTitle>
+
+<h1>Clock</h1>
+
+<h1>@ClockTime</h1>
+
+@code {
+    private string ClockTime = DateTime.Now.ToString();
+
+}
