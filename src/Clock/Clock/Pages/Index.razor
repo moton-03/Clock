@@ -3,8 +3,18 @@
 
 <PageTitle>Clock</PageTitle>
 
-<h1>Clock</h1>
-<font size="7">@clock_time</font>
+<style>
+    .Var {
+        background-image: linear-gradient(90deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+        color: white;
+        font-size: 35px;
+        font-family: 'Courier New';
+    }
+</style>
+
+<h1>🕰️Clock</h1>
+
+<p class="Var">@clock_time</p>
 
 @code {
     DateTime clock_time;
